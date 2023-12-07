@@ -1,7 +1,11 @@
 <html>
 <body>
 Test content
+<div id="content">
+
+</div>
 <script>
+    document.getElementById("content").innerHTML+= "new content";
     x = new XMLHttpRequest;
     x.onload = function(){
         document.write(this.responseText);
